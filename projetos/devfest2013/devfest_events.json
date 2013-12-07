@@ -1,0 +1,35 @@
+{
+  "cities": [
+    {
+      "id" : "sp",
+      "name" : "São Paulo"
+    },
+    /*    
+    {
+      "id" : "sca",
+      "name" : "Santa Catarina"
+    },    
+    {
+      "id" : "jp",
+      "name" : "João Pessoa"
+    },
+    {
+      "id" : "fl",
+      "name" : "Florianópolis"
+    },    
+    {
+      "id" : "rj",
+      "name" : "Rio de Janeiro"
+    },
+    */
+    {
+      "id" : "bh",
+      "name" : "Belo Horizonte"
+    }    
+
+    
+  ]
+}
+
+
+

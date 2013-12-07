@@ -1,0 +1,10 @@
+/* TEAM */
+  Designer/Developer: Marcio Mangar
+  Contact: cpp [at] codeinfected.com
+  Twitter: @mangar
+  From: São Paulo, Brasil
+
+/* SITE */
+  Language: Portugues 
+  Doctype: HTML5
+  IDE: Sublime Text 2

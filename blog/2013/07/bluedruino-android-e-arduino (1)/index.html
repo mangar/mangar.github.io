@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="no-js blog-post" lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="//use.typekit.net/say4lty.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>BlueDruino - Android e Arduino via Bluetooth</title>
+  <meta name="description" content="">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/codeinfected">
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" href="/css/fontello/css/codeinfected.css">
+  <!--[if IE 7]><link rel="stylesheet" href="/css/fontello/css/codeinfected-ie7.css"><![endif]-->
+  <link rel="stylesheet" href="/assets/common.css">
+  <link rel="shortcut icon" type="image/ico" href="/favicon.png">
+  <script src="/js/vendor/modernizr.min.js"></script>
+</head>
+<body>
+
+    <header class="global-header" role="banner">
+    <nav class="navigation" role="navigation">
+      <ul>
+        <li class="nav-index"><a href="/">Index</a></li>
+        <li class="nav-projects"><a href="/projetos/">Projetos</a></li>
+        <li class="nav-blog"><a href="/blog/">Blog</a></li>
+<!--        <li class="nav-about"><a href="/about/">About</a></li> -->
+      </ul>
+    </nav>
+    <!-- / .navigation -->
+  </header>
+  <!-- / .global-header -->
+
+
+  <div class="block">
+  <section class="row" role="main">
+    <article class="post ten columns centered">
+      <header>
+        <time pubdate>25 Jul 2013</time>
+        <h1>BlueDruino - Android e Arduino via Bluetooth</h1>
+      </header>
+
+      <center><img src="/images/posts/bluedruino-android-e-arduino.png" class="en-media"/></center>
+<p>&nbsp;</p>
+
+
+
+<h2>Motivação </h2>
+
+<p>
+Conectar um celular rodando Android a um Arduino sem utilizar a Internet.
+Para isso utilizei uma conexão Bluetooth entre os devices. A interface bluetooth já está disponivel no celular, no Arduino existe algumas placas auxiliares que podem ser conectadas ao Arduino para efetuar a conexão.
+Uma vez conectado (paired) os devices, enviaremos comandos do celular para o Arduino que interpretará os comandos e ascenderá/apagará os leds conectados na protoboard.
+</p>
+
+
+
+<h2>Componentes</h2>
+
+<ul>
+	<li>Arduino UNO</li>
+	<li>3 leds (1 vermelho, 1 amarelo e 1 verde) - <a href="http://goo.gl/meFBE8" target="dx7">http://goo.gl/meFBE8</a> / <a href="http://goo.gl/82XM9O" target="dx6">http://goo.gl/82XM9O</a> / <a href="http://goo.gl/ml3a1H" target="dx5">http://goo.gl/ml3a1H</a></li>
+	<li>1 Placa Bluetooth JY-MCU - <a href="http://goo.gl/3PVyy" target="dx4">http://goo.gl/3PVyy</a></li>
+	<li>1 Resistor - <a href="http://goo.gl/OTvnbc" target="dx3"></a>http://goo.gl/OTvnbc</li>
+	<li>9 Cabos para ligar os leds, resistor e placa BT - <a href="http://goo.gl/NDxqt" target="dx2">http://goo.gl/NDxqt</a></li>
+	<li>1 Protoboard - <a href="http://goo.gl/zFdV5Z" target="dx1">http://goo.gl/zFdV5Z</a></li>
+</ul>
+
+
+<p>&nbsp;</p>
+<h2>Sketch</h2>
+
+<center><img src="/images/posts/bluedruino-android-e-arduino-BlueDruino_Sketch2.png" class="en-media"/></center>
+
+
+<p>&nbsp;</p>
+<h2>Código Arduino</h2>
+
+<p>
+O código no Arduino interpreta entradas e toma decisões baseado nesta. Está desenvolvido para aceitar os comandos: 0, 1, 2 e b.  <br>
+Para cada uma das entradas (0,1 e 2) um led é acesso: <br>
+<ul>
+	<li>envia o comando para cortar o sinal nas portas: 10, 11 e 12</li>
+	<li>envia o comando para enviar sinal para uma das portas: 0 : porta 10, 1 : porta 11, 2 : porta 12</li>
+</ul>
+Enviando o comando "b" (sequencia executada 10 vezes):
+<ul>
+	<li>todas as portas são fechadas + abre sinal na porta 12</li>
+	<li>todas as portas são fechadas + abre sinal na porta 11</li>
+	<li>todas as portas são fechadas + abre sinal na porta 10</li>	
+</ul>
+</p>
+<script src="https://gist.github.com/mangar/6081212.js"></script>
+
+
+<p>&nbsp;</p>
+<h2>Conectando o Macbook via Bluetooth</h2>
+
+<p>
+Para economizar algum tempo no desenvolvimento, utilizei minha própria máquina (MacBook Pro) conectando no Arduino via Bluetooth e enviando os comandos. Este approach foi válido enquanto eu estava desenvolvendo o código no Arduino.
+
+O passo a passo completo está disponível aqui: <a href="http://wiki.pinguino.cc/index.php/Interfacing_with_Bluetooth_JY-MCU" target="wiki">http://wiki.pinguino.cc/index.php/Interfacing_with_Bluetooth_JY-MCU</a>
+</p>
+
+Após os cabos conectados e o código enviado para o Arduino, de forma resumida - e copiada - os passos necessários são:
+
+<ul>
+	<li>Power up the Pinguino and BT module</li>
+	<li>Choose Bluetooth from the OS X menu bar</li>
+	<li>Choose Bluetooth Setup Assistant</li>	
+	<li>Bluetooth device shows up as "linvor" - select continue</li>	
+	<li>Pairing will fail, so select Passcode Options</li>	
+	<li>Select Use a specific passcode</li>
+	<li>Enter passcode 1234, press OK ... should pair successfully, so Quit</li>	
+	<li>The connection LED on the BT module should still be flashing</li>	
+	<li>Open a terminal window and list the /dev directory (ie type ls -ltr /dev)</li>	
+	<li>You should see two new device entries similar to tty.linvor-DevB and cu.linvor-DevB</li>	
+	<li>Use screen in a terminal window to connect to the BT module (ie type screen /dev/cu.linvor-DevB)</li>	
+</ul>
+
+Send commands: 0, 1, 2, b. See the lights on and have fun!
+
+
+<p>&nbsp;</p>
+<h2>Código Java</h2>
+
+<script src="https://gist.github.com/mangar/6081218.js"></script>
+
+
+<center>
+	<img src="/images/posts/bluedruino-android-e-arduino-screenshot.png" class="en-media" width="300px"/> <br>
+	<i><b>Figura:</b> Imagem da App no Mobile</i>
+</center>
+
+
+<ul>
+	<li>Play: <a href="https://play.google.com/store/apps/details?id=mangar.bluedruino" target="play">https://play.google.com/store/apps/details?id=mangar.bluedruino</a></li>
+	<li>Github: <a href="https://github.com/mangar/BlueDruino" target="github">https://github.com/mangar/BlueDruino</a> </li>	
+	<li>YouTube: <a href="http://www.youtube.com/watch?v=eOpwi6-Gqao" target="youtube">http://www.youtube.com/watch?v=eOpwi6-Gqao</a></li>
+</ul>
+
+
+<p>&nbsp;</p>
+<h2>Referências</h2>
+
+<ul>
+	<li><a href="http://wiki.pinguino.cc/index.php/Interfacing_with_Bluetooth_JY-MCU">http://wiki.pinguino.cc/index.php/Interfacing_with_Bluetooth_JY-MCU</a></li>
+	<li><a href="http://english.cxem.net/arduino/arduino5.php">http://english.cxem.net/arduino/arduino5.php</a></li>
+	<li><a href="http://www.instructables.com/id/Andruino-A-Simple-2-Way-Bluetooth-based-Android-C/?ALLSTEPS">http://www.instructables.com/id/Andruino-A-Simple-2-Way-Bluetooth-based-Android-C/?ALLSTEPS</a> </li>
+</ul>
+
+
+
+
+
+
+
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'codeinfected';
+
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+    </article>
+    <!-- / .post -->
+  </section>
+  <!-- / role="main" -->
+</div>
+<!-- / .block -->
+
+<aside class="row" role="complementary">
+  <div class="more-posts ten columns centered">
+    <h2>All blog posts</h2>
+    <ul class="posts">
+      
+        <li>
+          <time pubdate>25 Jul 2013</time>
+          <span><a href="/blog/2013/07/bluedruino-android-e-arduino/">BlueDruino - Android e Arduino via Bluetooth</a></span>
+        </li>
+      
+        <li>
+          <time pubdate>07 Feb 2013</time>
+          <span><a href="/blog/2013/02/php-no-heroku/">PHP + Postgres no Heroku</a></span>
+        </li>
+      
+        <li>
+          <time pubdate>25 Jan 2013</time>
+          <span><a href="/blog/2013/01/versionamento-de-servicos-web-api/">Versionamento de Serviços WEB - API</a></span>
+        </li>
+      
+        <li>
+          <time pubdate>13 Jan 2013</time>
+          <span><a href="/blog/2013/01/arduino-ir-infrared-motion-detection-sensor/">Arduino com IR Infrared Motion Sensor</a></span>
+        </li>
+      
+    </ul>
+    <p><a class="button" href="http://feeds.feedburner.com/codeinfected" title="Subcribe via RSS"><i class="icon-rss"></i> Subscribe</a></p>
+  </div>
+  <!-- / .more-posts -->
+</aside>
+<!-- / role="complementary" -->
+
+
+    <footer class="global-footer" role="contentinfo">
+        <ul class="actions social">
+          <li>
+            <a href="http://codeinfected.com" title="CodeInfected">&nbsp;CodeInfected&nbsp;</a> | 
+          </li>
+          <li>
+            <a href="mailto:cpp@codeinfected.com" title="Email"><i class="icon-mail"></i></a>
+          </li>
+          <li>
+            <a href="https://github.com/mangar" title="Code on GitHub" target="_github"><i class="icon-github"></i></a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mangar" title="Tweety tweet!" target="_twitter"><i class="icon-twitter"></i></a>
+          </li>
+          <li>
+            <a href="http://www.linkedin.com/in/marciogarcia" title="Profile on LinkedIn" target="_linkedin"><i class="icon-linkedin"></i></a>
+          </li>
+        </ul>
+  </footer>
+
+
+
+<script src="/assets/common.js"></script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4517249-26']);
+  _gaq.push(['_setDomainName', 'codeinfected.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

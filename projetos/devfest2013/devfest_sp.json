@@ -1,0 +1,191 @@
+{
+  "city":"sp",
+  "version" : "130601",
+  "schedule": 
+              {
+                "days" : [{
+                 "header" : { 
+                              "date" : "16/06/2013",
+                              "date_description" : "Segunda, 01 de Janeiro"
+                            },
+                  "data" : [{ 
+                                "start_time" : "9:00",
+                                "end_time" : "10:00",
+                                "is_break" : 0
+                              },
+                              { 
+                                "start_time" : "10:00",
+                                "end_time" : "11:00",
+                                "is_break" : 0
+                              },
+                              { 
+                                "start_time" : "11:00",
+                                "end_time" : "12:00",
+                                "is_break" : 0
+                              },
+                              { 
+                                "start_time" : "12:00",
+                                "end_time" : "13:00",
+                                "is_break" : 1
+                              },
+                              { 
+                                "start_time" : "13:00",
+                                "end_time" : "14:00",
+                                "is_break" : 0
+                              },
+                              { 
+                                "start_time" : "14:00",
+                                "end_time" : "15:00",
+                                "is_break" : 0
+                              },
+                              { 
+                                "start_time" : "15:00",
+                                "end_time" : "16:00",
+                                "is_break" : 0
+                              },
+                              { 
+                                "start_time" : "16:00",
+                                "end_time" : "17:00",
+                                "is_break" : 0
+                              }
+                          ]
+                      }]
+              },
+  "days": [
+    {
+      "date": "16/06/2013",
+      "sessions": [
+        {
+          "room": "Sala 1",
+          "start_time": "09:00",
+          "end_time": "10:00",
+          "theme" : "android",
+          "name": "Nome da Sessao 1",
+          "description": "Descricao da sessao 1",
+          "url": "http://www.uol.com.br/sessao1.html",
+          "panelist1_gplus_id": "101700040193999576337",
+          "panelist1_name": "Name Panelist1",
+          "panelist1_description":"Panelist1 Description",
+          "panelist2_gplus_id": "idpl2",
+          "panelist2_name": "Name Panelist2",
+          "panelist2_description":"Panelist2 Description"
+        },
+        {
+          "room": "Sala 1",
+          "start_time": "10:00",
+          "end_time": "11:00",
+          "theme" : "chrome",
+          "name": "Nome da Sessao 2",
+          "description": "Descricao da sessao 2",          
+          "url": "http://www.uol.com.br/sessao2.html",
+          "panelist1_gplus_id": "101700040193999576337",
+          "panelist1_name": "Name Panelist1",
+          "panelist1_description":"Panelist1 Description",
+          "panelist2_gplus_id": "101700040193999576337",
+          "panelist2_name": "Name Panelist2",
+          "panelist2_description":"Panelist2 Description"
+        },
+        {
+          "room": "Sala 1",
+          "start_time": "11:00",
+          "end_time": "12:00",
+          "theme" : "android",
+          "name": "Nome da Sessao 3",
+          "description": "Descricao da sessao 3",   
+          "url": "http://www.uol.com.br/sessao3.html",
+          "panelist1_gplus_id": "idpl1",
+          "panelist1_name": "Name Panelist1",
+          "panelist1_description":"Panelist1 Description",
+          "panelist2_gplus_id": "idpl2",
+          "panelist2_name": "Name Panelist2",
+          "panelist2_description":"Panelist2 Description"
+        },
+        {
+          "room": "Sala 2",
+          "start_time": "09:00",
+          "end_time": "10:00",
+          "theme" : "appengine",
+          "name": "Nome da Sessao 1.2",
+          "description": "Descricao da sessao 1.2",
+          "url": "http://www.uol.com.br/sessao1.2.html",
+          "panelist1_gplus_id": "idpl1",
+          "panelist1_name": "Name Panelist1",
+          "panelist1_description":"Panelist1 Description",
+          "panelist2_gplus_id": "idpl2",
+          "panelist2_name": "Name Panelist2",
+          "panelist2_description":"Panelist2 Description"
+        },
+        {
+          "room": "Sala 2",
+          "start_time": "10:00",
+          "end_time": "11:00",
+          "theme" : "android",
+          
+          "name": "Nome da Sessao 2.2",
+          "description": "Descricao da sessao 2.2",          
+          "url": "http://www.uol.com.br/sessao2.2.html",
+          "panelist1_gplus_id": "idpl1",
+          "panelist1_name": "Name Panelist1",
+          "panelist1_description":"Panelist1 Description",
+          "panelist2_gplus_id": "idpl2",
+          "panelist2_name": "Name Panelist2",
+          "panelist2_description":"Panelist2 Description"
+        },
+        {
+          "room": "Sala 2",
+          "start_time": "11:00",
+          "end_time": "12:00",
+          "theme" : "glass",
+          
+          "name": "Nome da Sessao 3.2",
+          "description": "Descricao da sessao 3.2",   
+          "url": "http://www.uol.com.br/sessao3.2.html",
+          "panelist1_gplus_id": "idpl1",
+          "panelist1_name": "Name Panelist1",
+          "panelist1_description":"Panelist1 Description",
+          "panelist2_gplus_id": "idpl2",
+          "panelist2_name": "Name Panelist2",
+          "panelist2_description":"Panelist2 Description"
+        },
+        {
+          "start_time": "12:00",
+          "end_time": "13:00",
+          "name": "Almoço"
+        },
+
+        {
+          "room": "Sala 1",
+          "start_time": "13:00",
+          "end_time": "14:00",
+          "theme" : "ad",
+          
+          "name": "Nome da Sessao 4",
+          "description": "Descricao da sessao 4",
+          "url": "http://www.uol.com.br/sessao4.html",
+          "panelist1_gplus_id": "idpl1",
+          "panelist1_name": "Name Panelist1",
+          "panelist1_description":"Panelist1 Description",
+          "panelist2_gplus_id": "idpl2",
+          "panelist2_name": "Name Panelist2",
+          "panelist2_description":"Panelist2 Description"
+        },
+        {
+          "room": "Sala 2",
+          "start_time": "13:00",
+          "end_time": "14:00",
+          "theme" : "youtube",
+          
+          "name": "Nome da Sessao 4.2",
+          "description": "Descricao da sessao 4.2",
+          "url": "http://www.uol.com.br/sessao4.2.html",
+          "panelist1_gplus_id": "idpl1",
+          "panelist1_name": "Name Panelist1",
+          "panelist1_description":"Panelist1 Description",
+          "panelist2_gplus_id": "idpl2",
+          "panelist2_name": "Name Panelist2",
+          "panelist2_description":"Panelist2 Description"
+        }
+      ]
+    }
+  ]
+}

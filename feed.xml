@@ -1,0 +1,573 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Marcio Mangar - CodeInfected</title>
+    <link>http://codeinfected.com/</link>
+    <description></description>
+    <language>pt-BR</language>
+    <pubDate>Sun, 11 Aug 2013 19:14:46 -0300</pubDate>
+    <lastBuildDate>Sun, 11 Aug 2013 19:14:46 -0300</lastBuildDate>
+
+    
+    <item>
+      <title>BlueDruino - Android e Arduino via Bluetooth</title>
+      <link>http://www.codeinfected.com/blog/2013/07/bluedruino-android-e-arduino/</link>
+      <pubDate>Thu, 25 Jul 2013 00:00:00 -0300</pubDate>
+      <author>cpp@codeinfected.com (Marcio Mangar)</author>
+      <guid>http://www.codeinfected.com/blog/2013/07/bluedruino-android-e-arduino</guid>
+      <description>&lt;center&gt;&lt;img src=&quot;/images/posts/bluedruino-android-e-arduino.png&quot; class=&quot;en-media&quot;/&gt;&lt;/center&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h2&gt;Motivação &lt;/h2&gt;
+
+&lt;p&gt;
+Conectar um celular rodando Android a um Arduino sem utilizar a Internet.
+Para isso utilizei uma conexão Bluetooth entre os devices. A interface bluetooth já está disponivel no celular, no Arduino existe algumas placas auxiliares que podem ser conectadas ao Arduino para efetuar a conexão.
+Uma vez conectado (paired) os devices, enviaremos comandos do celular para o Arduino que interpretará os comandos e ascenderá/apagará os leds conectados na protoboard.
+&lt;/p&gt;
+
+
+
+&lt;h2&gt;Componentes&lt;/h2&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;Arduino UNO&lt;/li&gt;
+	&lt;li&gt;3 leds (1 vermelho, 1 amarelo e 1 verde) - &lt;a href=&quot;http://goo.gl/meFBE8&quot; target=&quot;dx7&quot;&gt;http://goo.gl/meFBE8&lt;/a&gt; / &lt;a href=&quot;http://goo.gl/82XM9O&quot; target=&quot;dx6&quot;&gt;http://goo.gl/82XM9O&lt;/a&gt; / &lt;a href=&quot;http://goo.gl/ml3a1H&quot; target=&quot;dx5&quot;&gt;http://goo.gl/ml3a1H&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;1 Placa Bluetooth JY-MCU - &lt;a href=&quot;http://goo.gl/3PVyy&quot; target=&quot;dx4&quot;&gt;http://goo.gl/3PVyy&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;1 Resistor - &lt;a href=&quot;http://goo.gl/OTvnbc&quot; target=&quot;dx3&quot;&gt;&lt;/a&gt;http://goo.gl/OTvnbc&lt;/li&gt;
+	&lt;li&gt;9 Cabos para ligar os leds, resistor e placa BT - &lt;a href=&quot;http://goo.gl/NDxqt&quot; target=&quot;dx2&quot;&gt;http://goo.gl/NDxqt&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;1 Protoboard - &lt;a href=&quot;http://goo.gl/zFdV5Z&quot; target=&quot;dx1&quot;&gt;http://goo.gl/zFdV5Z&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h2&gt;Sketch&lt;/h2&gt;
+
+&lt;center&gt;&lt;img src=&quot;/images/posts/bluedruino-android-e-arduino-BlueDruino_Sketch2.png&quot; class=&quot;en-media&quot;/&gt;&lt;/center&gt;
+
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h2&gt;Código Arduino&lt;/h2&gt;
+
+&lt;p&gt;
+O código no Arduino interpreta entradas e toma decisões baseado nesta. Está desenvolvido para aceitar os comandos: 0, 1, 2 e b.  &lt;br&gt;
+Para cada uma das entradas (0,1 e 2) um led é acesso: &lt;br&gt;
+&lt;ul&gt;
+	&lt;li&gt;envia o comando para cortar o sinal nas portas: 10, 11 e 12&lt;/li&gt;
+	&lt;li&gt;envia o comando para enviar sinal para uma das portas: 0 : porta 10, 1 : porta 11, 2 : porta 12&lt;/li&gt;
+&lt;/ul&gt;
+Enviando o comando &quot;b&quot; (sequencia executada 10 vezes):
+&lt;ul&gt;
+	&lt;li&gt;todas as portas são fechadas + abre sinal na porta 12&lt;/li&gt;
+	&lt;li&gt;todas as portas são fechadas + abre sinal na porta 11&lt;/li&gt;
+	&lt;li&gt;todas as portas são fechadas + abre sinal na porta 10&lt;/li&gt;	
+&lt;/ul&gt;
+&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/mangar/6081212.js&quot;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h2&gt;Conectando o Macbook via Bluetooth&lt;/h2&gt;
+
+&lt;p&gt;
+Para economizar algum tempo no desenvolvimento, utilizei minha própria máquina (MacBook Pro) conectando no Arduino via Bluetooth e enviando os comandos. Este approach foi válido enquanto eu estava desenvolvendo o código no Arduino.
+
+O passo a passo completo está disponível aqui: &lt;a href=&quot;http://wiki.pinguino.cc/index.php/Interfacing_with_Bluetooth_JY-MCU&quot; target=&quot;wiki&quot;&gt;http://wiki.pinguino.cc/index.php/Interfacing_with_Bluetooth_JY-MCU&lt;/a&gt;
+&lt;/p&gt;
+
+Após os cabos conectados e o código enviado para o Arduino, de forma resumida - e copiada - os passos necessários são:
+
+&lt;ul&gt;
+	&lt;li&gt;Power up the Pinguino and BT module&lt;/li&gt;
+	&lt;li&gt;Choose Bluetooth from the OS X menu bar&lt;/li&gt;
+	&lt;li&gt;Choose Bluetooth Setup Assistant&lt;/li&gt;	
+	&lt;li&gt;Bluetooth device shows up as &quot;linvor&quot; - select continue&lt;/li&gt;	
+	&lt;li&gt;Pairing will fail, so select Passcode Options&lt;/li&gt;	
+	&lt;li&gt;Select Use a specific passcode&lt;/li&gt;
+	&lt;li&gt;Enter passcode 1234, press OK ... should pair successfully, so Quit&lt;/li&gt;	
+	&lt;li&gt;The connection LED on the BT module should still be flashing&lt;/li&gt;	
+	&lt;li&gt;Open a terminal window and list the /dev directory (ie type ls -ltr /dev)&lt;/li&gt;	
+	&lt;li&gt;You should see two new device entries similar to tty.linvor-DevB and cu.linvor-DevB&lt;/li&gt;	
+	&lt;li&gt;Use screen in a terminal window to connect to the BT module (ie type screen /dev/cu.linvor-DevB)&lt;/li&gt;	
+&lt;/ul&gt;
+
+Send commands: 0, 1, 2, b. See the lights on and have fun!
+
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h2&gt;Código Java&lt;/h2&gt;
+
+&lt;script src=&quot;https://gist.github.com/mangar/6081218.js&quot;&gt;&lt;/script&gt;
+
+
+&lt;center&gt;
+	&lt;img src=&quot;/images/posts/bluedruino-android-e-arduino-screenshot.png&quot; class=&quot;en-media&quot; width=&quot;300px&quot;/&gt; &lt;br&gt;
+	&lt;i&gt;&lt;b&gt;Figura:&lt;/b&gt; Imagem da App no Mobile&lt;/i&gt;
+&lt;/center&gt;
+
+
+&lt;ul&gt;
+	&lt;li&gt;Play: &lt;a href=&quot;https://play.google.com/store/apps/details?id=mangar.bluedruino&quot; target=&quot;play&quot;&gt;https://play.google.com/store/apps/details?id=mangar.bluedruino&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;Github: &lt;a href=&quot;https://github.com/mangar/BlueDruino&quot; target=&quot;github&quot;&gt;https://github.com/mangar/BlueDruino&lt;/a&gt; &lt;/li&gt;	
+	&lt;li&gt;YouTube: &lt;a href=&quot;http://www.youtube.com/watch?v=eOpwi6-Gqao&quot; target=&quot;youtube&quot;&gt;http://www.youtube.com/watch?v=eOpwi6-Gqao&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;&lt;a href=&quot;http://wiki.pinguino.cc/index.php/Interfacing_with_Bluetooth_JY-MCU&quot;&gt;http://wiki.pinguino.cc/index.php/Interfacing_with_Bluetooth_JY-MCU&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;http://english.cxem.net/arduino/arduino5.php&quot;&gt;http://english.cxem.net/arduino/arduino5.php&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;http://www.instructables.com/id/Andruino-A-Simple-2-Way-Bluetooth-based-Android-C/?ALLSTEPS&quot;&gt;http://www.instructables.com/id/Andruino-A-Simple-2-Way-Bluetooth-based-Android-C/?ALLSTEPS&lt;/a&gt; &lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+
+</description>
+    </item>
+    
+    <item>
+      <title>PHP + Postgres no Heroku</title>
+      <link>http://www.codeinfected.com/blog/2013/02/php-no-heroku/</link>
+      <pubDate>Thu, 07 Feb 2013 00:00:00 -0200</pubDate>
+      <author>cpp@codeinfected.com (Marcio Mangar)</author>
+      <guid>http://www.codeinfected.com/blog/2013/02/php-no-heroku</guid>
+      <description>&lt;center&gt;&lt;img src=&quot;/images/posts/php_no_heroku0.png&quot; class=&quot;en-media&quot;/&gt;&lt;/center&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;h2&gt;Motivação &lt;/h2&gt;
+
+&lt;p&gt;Meu ponto de partida foi desenvolver uma App para Facebook. O desenvolvimento de uma App segue o mesmo modelo de um website convencional mas com algumas restrições a mais que pode atrasar o desenvolvimento se não analisados previamente, como por exemplo, sua app deve poder ser acessada via https. Instalar o certificado SSL não é uma tarefa complicada, mas é um pouco burocrática se você tem um prazo curto para a implementação desta app.&lt;/p&gt;
+
+&lt;p&gt;O &lt;a href=&quot;http://www.heroku.com&quot; target=&quot;_heroku&quot;&gt;Heroku&lt;/a&gt; já é um &lt;a href=&quot;http://en.wikipedia.org/wiki/PAAS&quot; target=&quot;_pass&quot;&gt;PAAS&lt;/a&gt; bem conhecido dos desenvolvedores principalmente pela capacidade de fazer deploy de aplicativos web escritos nas mais populares &lt;a href=&quot;https://devcenter.heroku.com/&quot; target=&quot;_heroku_devcenter&quot;&gt;linguagens de programação&lt;/a&gt; e já está preparado com todos os pré-requisitos para uma app no Facebook.&lt;/p&gt;
+
+
+
+&lt;h2&gt;Introdução&lt;/h2&gt;
+
+&lt;p&gt;Existe alguns pré requisitos e limitações para colocar uma app no Heroku, como por exemplo a instalação do Toolbelt para criar a sua app, fazer os deploys, tunnings e consultas ao banco de dados.&lt;/p&gt;
+
+
+&lt;h4&gt;Git e Heroku Toolbelt&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://git-scm.com/&quot; target=&quot;_git&quot;&gt;Git&lt;/a&gt; tenha o git instalado na sua máquina, este será o passo inicial, juntamente com o &lt;a href=&quot;https://toolbelt.heroku.com/&quot; target=&quot;_heroku_toolbelt&quot;&gt;Heroku Toolbelt&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;O Git é um dos mais populares controladores de versão hoje em dia. Quando seu código estiver o pronto para a sua primeira versão será necessário o Heroku Toolbelt para criar a app no Heroku e fazer o deploy do seu código para lá. Mais informações de como resolver este processo, de uma olhada no &lt;a href=&quot;https://devcenter.heroku.com/&quot; target=&quot;_devcenter&quot;&gt;DevCenter&lt;/a&gt;.&lt;/p&gt;
+
+
+&lt;h4&gt;PHP e Postgres&lt;/h4&gt;
+
+&lt;p&gt;Duas ferramentas que eu gosto bastante para descomplicar um pouco o meu ambiente de desenvolvimento utilizando Apache, MySQL e PHP (AMP) é o &lt;a href=&quot;http://www.mamp.info/en/index.html&quot; target=&quot;_mamp&quot;&gt;MAMP&lt;/a&gt;. Existe outras distribuições se vc utiliza &lt;a href=&quot;http://www.lamphowto.com/&quot; target=&quot;_lamp&quot;&gt;Linux&lt;/a&gt; ou &lt;a href=&quot;http://www.wampserver.com/en/&quot; target=&quot;_wamp&quot;&gt;Windows&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;E para evitar todo aquele processo de instalação do Postgres eu gosto de utilizar o &lt;a href=&quot;http://postgresapp.com/&quot; target=&quot;_postgres.app&quot;&gt;Postgres.app&lt;/a&gt;.&lt;/p&gt;
+
+
+&lt;h3&gt;1 - Criação da App&lt;/h3&gt;
+
+
+&lt;p&gt;Crie a sua aplicação local normalmente. Para este exemplo será uma app bem simples, apenas uma página se conectando no banco de dados e listando os registros de uma tabela fictícia chamada contador. Sempre que fizer acesso a esta página.&lt;/p&gt;
+
+&lt;p&gt;Inicialize o seu repositório Git e atualize o branch master. Se não ainda o fez, estes são os comandos:&lt;/p&gt;
+&lt;pre class=&quot;code&quot;&gt;
+	git init
+&lt;/pre&gt;
+
+
+&lt;p&gt;Atualize o seu branch master:&lt;/p&gt;
+
+&lt;pre class=&quot;code&quot;&gt;
+git add .
+git commit -m &quot;initial release&quot;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Após criar e inicializar o seu repositório localmente e verifica que a app esta funcionando, você deve criá-la no Heroku. No diretório  de sua app, execute o comando, informando o email e senha de autenticação ao Heroku:
+&lt;center&gt;&lt;img name=&quot;09dcf932-9d5d-45ef-8418-71fffc754d17&quot; src=&quot;/images/posts/php_no_heroku1.png&quot; class=&quot;en-media&quot;/&gt;&lt;/center&gt;
+&lt;/p&gt;
+
+
+&lt;p&gt;Após a autenticação, crie a sua app: 
+&lt;center&gt;&lt;img name=&quot;97c7ebe9-9244-4343-8a87-2a2e2b842ba5&quot; src=&quot;/images/posts/php_no_heroku2.png&quot; class=&quot;en-media&quot;/&gt;&lt;/center&gt;
+&lt;/p&gt;
+
+
+&lt;p&gt;Faça o seu primeiro deploy. Neste momento o Heroku criará uma instancia para que a sua app seja executada. O Nome da sua ap será algo relacionado a cultura japonesa, e bem estranho com nomes e numeros. Não se importe com isso agora, pois você poderá mudar este nome e até mesmo colocar em um domínio próprio mais tarde.&lt;/p&gt;
+
+&lt;pre class=&quot;code&quot;&gt;
+	git push heroku master
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;/Visite a sua aplicação, alguma coisa vai dar errado, pois o seu banco de dados ainda não está preparado.p&gt;
+
+
+
+&lt;h3&gt;2 - Banco de dados&lt;/h3&gt;
+
+&lt;p&gt;
+A criação do banco de dados pode ser feito de duas formas: 1 - através da linha de comando ou 2 - através do console do Heroku.&lt;br&gt;
+Eu vou escolher fazer isso através da linha de comando.
+&lt;/p&gt;
+
+&lt;b&gt;&lt;i&gt;Adicionando o add-on do Postgres&lt;/i&gt;&lt;/b&gt; 
+
+&lt;center&gt;&lt;img name=&quot;97c7ebe9-9244-4343-8a87-2a2e2b842ba5&quot; src=&quot;/images/posts/php_no_heroku3.png&quot; class=&quot;en-media&quot;/&gt;&lt;/center&gt;
+
+
+&lt;p&gt;
+Este comando criará uma instancia de um banco de dados Postgres, neste caso o nome do banco de dados dado foi: HEROKU_POSTGRESQL_BLUE_URL. &lt;br&gt;
+Mas este banco de dados ainda está sem nenhum objeto. Vamos criar a tabela de contador de acessos. &lt;br&gt;
+Dispare o comando para se conectar no banco de dados:
+&lt;/p&gt;
+
+&lt;pre class=&quot;code&quot;&gt;
+heroku pg:psql HEROKU_POSTGRESQL_BLUE_URL
+&lt;/pre&gt;
+
+&lt;p&gt;Você terá acesso a todos os comandos do Postgres, comece por criar a sequence e depois a tabela:&lt;/p&gt;
+
+&lt;pre class=&quot;code&quot;&gt;
+CREATE SEQUENCE contador_id_seq;
+
+CREATE TABLE contadores (
+	id int NOT NULL DEFAULT nextval(&#39;contador_id_seq&#39;),
+	contador INT
+);
+&lt;/pre&gt;
+
+
+
+&lt;p&gt;Com os seus objetos de banco recém criados, agora chegou a hora de conectar a sua app ao banco de dados. O primeiro passo é descobrir a string de conexão com o banco de dados, que você pode conseguir disparando o comando:&lt;/p&gt;
+
+&lt;pre class=&quot;code&quot;&gt; heroku pg:credentials HEROKU_POSTGRESQL_BLUE_URL&lt;/pre&gt;
+
+&lt;p&gt;A resposta será algo parecido com:&lt;/p&gt;
+
+&lt;pre class=&quot;code&quot;&gt;
+Connection info string:
+&quot;dbname=d37m9tg9rvcqd8 host=ec2-54-243-243-113.compute-1.amazonaws.com port=5432 user=rrxmoqnwzhmapi password=wr1rZJdIn7UDPKpgP9StNMsZBy sslmode=require&quot;
+&lt;/pre&gt;
+
+
+&lt;p&gt;
+Copie esta string e cole no trecho do seu php onde inicia a conexão com o banco de dados. &lt;br&gt;
+O nosso código agora se parece com algo assim:
+&lt;/p&gt;
+
+
+
+&lt;center&gt;&lt;img name=&quot;97c7ebe9-9244-4343-8a87-2a2e2b842ba5&quot; src=&quot;/images/posts/php_no_heroku5.png&quot; class=&quot;en-media&quot;/&gt; &lt;br&gt;
+&lt;sublegend&gt;index.php - Disponível no &lt;a href=&quot;https://gist.github.com/mangar/4727684&quot; target=&quot;github&quot;&gt;Github&lt;/a&gt;&lt;/sublegend&gt;
+&lt;/center&gt;
+
+
+
+&lt;p&gt;Faça um novo deploy com a String de conexão recém descoberta e faça um teste acessando sua app, informando o parametro: &lt;i&gt;param&lt;/i&gt; (?param=1, por exemplo).&lt;/p&gt;
+
+
+&lt;center&gt;&lt;img name=&quot;97c7ebe9-9244-4343-8a87-2a2e2b842ba5&quot; src=&quot;/images/posts/php_no_heroku4.png&quot; class=&quot;en-media&quot;/&gt; &lt;br&gt;
+&lt;sublegend&gt;Como a sua aplicação deve parecer após alguns acessos.&lt;/sublegend&gt;
+&lt;/center&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+
+&lt;h3&gt;3 - Erro ao fazer deploy no Heroku&lt;/h3&gt;
+
+&lt;div&gt;
+Se por acaso na sua aplicação não tiver um arquivo index.php você verá um erro parecido com este:
+
+&lt;pre class=&quot;code&quot;&gt;
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 238 bytes, done.
+Total 3 (delta 0), reused 0 (delta 0)
+ !     Heroku push rejected, no Cedar-supported app detected
+
+To git@heroku.com:aqueous-lake-3197.git
+ ! [remote rejected] master -&gt; master (pre-receive hook declined)
+error: failed to push some refs to &#39;git@heroku.com:aqueous-lake-3197.git&#39;
+&lt;/pre&gt;
+
+Lembre-se, crie um arquivo &lt;b&gt;index.php&lt;/b&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+
+&lt;h2&gt;Conclusão&lt;/h2&gt;
+
+&lt;p&gt;
+Para o bem ou para o mal, PHP ainda é uma linguagem &lt;a href=&quot;http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html&quot; target=&quot;_tiobe&quot;&gt;muito popular&lt;/a&gt;, e raramente você encontrará um servidor web Apache ou NGINX sem o mod_php instalado. E no momento que você menos esperar pode aparecer um projetinho bastante simples que é apenas um formulário com alguns campos a serem guardados no banco de dados para futuras checagens. &lt;br&gt;
+Com o auxilio do Heroku, você consegue fazer isso e ainda contar com &lt;a href=&quot;https://addons.heroku.com/ssl&quot; target=&quot;_heroku_ssl&quot;&gt;SSL&lt;/a&gt;, &lt;a href=&quot;https://addons.heroku.com/#email-sms&quot; target=&quot;_heroku_envio&quot;&gt;envio de email e SMS&lt;/a&gt; e mais alguns outros add-ons que você pode incluir a sua app.
+&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Versionamento de Serviços WEB - API</title>
+      <link>http://www.codeinfected.com/blog/2013/01/versionamento-de-servicos-web-api/</link>
+      <pubDate>Fri, 25 Jan 2013 00:00:00 -0200</pubDate>
+      <author>cpp@codeinfected.com (Marcio Mangar)</author>
+      <guid>http://www.codeinfected.com/blog/2013/01/versionamento-de-servicos-web-api</guid>
+      <description>&lt;p&gt;
+APIs de integração entre aplicações estão por toda a parte. Geralmente somos apenas consumidores dessas APIs integrando nossas aplicações com serviços de redes sociais.
+&lt;/p&gt;
+
+&lt;p&gt;
+Neste cenário somos afetados diretamente quando alguma API estava funcionando e de repente para de funcionar quebrando a nossa app.
+&lt;/p&gt;
+
+&lt;p&gt;
+Se por algum motivo, algum dia você mudar de lado e deixar de ser consumidor e passar a ser distribuidor de API verá que o problema é bem mais embaixo.
+&lt;/p&gt;
+
+&lt;p&gt;
+Manter uma API ativa, sofrendo correções e ainda trabalhar em novas funcionalidades e evoluções desta API request muito trabalho de organização e uma forma de organização é o versionamento de API.
+&lt;/p&gt;
+
+&lt;p&gt;
+Algumas vantagens no versionamento de APIs:
+&lt;ul&gt;
+	&lt;li&gt;Evolução do código: as novas implementações podem ou não afetar as versões anteriores. A escolha é sua.&lt;/li&gt;
+	&lt;li&gt;Correção de Bugs: O deploy de uma correção pode ser feito sem afetar as demais versões.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+Existe algumas formas de implementar o versionamento, aqui listo 3 delas.
+&lt;/p&gt;
+
+
+
+&lt;h2&gt;Formas de Implementação&lt;/h2&gt;
+
+
+&lt;h3&gt;1 - Versão como parte da URL&lt;/h3&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;center&gt;
+&lt;img src=&quot;/images/posts/versionamento-de-servicos-web-api_s1.png&quot;&gt; &lt;br&gt;
+&lt;sublegend&gt;Figura 1: Versão como parte da URL&lt;/sublegend&gt;
+&lt;/center&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;
+Este modelo talvez seja o mais simples de ser implementado e também o que contenha uma maior quantidade de código duplicado.
+É uma abordagem inicial para sistemas que tenha controle não apenas do sistema servidor da API mas também do cliente consumidor ou fácil acesso aos desenvolvedores do sistema cliente para que sejam notificados de uma nova versão.
+&lt;/p&gt;
+
+&lt;p&gt;
+É adicionado a versão da API como parte da URL a ser chamada pelo cliente.
+O serviço: servico1 posui duas versões, v1 e v2 o cliente deve ser comunicado quando uma nova versão for implementada para que este altere a chamada.
+&lt;/p&gt;
+
+
+&lt;b&gt;Exemplo:&lt;/b&gt;
+&lt;ul&gt;
+	&lt;li&gt;/v1/servico1&lt;/li&gt;
+	&lt;li&gt;/v2/servico1&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;b&gt;Prós&lt;/b&gt;
+&lt;ul&gt;
+	&lt;li&gt;versionamento simples e rápido de ser implementado&lt;/li&gt;
+	&lt;li&gt;fácil de evoluir as versões (basta criar um novo endpoint)&lt;/li&gt;
+	&lt;li&gt;não existe problemas com retrocompatibilidade&lt;/li&gt;
+&lt;/ul&gt;
+   
+&lt;b&gt;Contras&lt;/b&gt;
+&lt;ul&gt;
+	&lt;li&gt;alteração do lado do cliente&lt;/li&gt;
+	&lt;li&gt;possível duplicação de código interno&lt;/li&gt;
+	&lt;li&gt;maior tempo de manutenção&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;b&gt;Adequado para:&lt;/b&gt;
+&lt;ul&gt;
+	&lt;li&gt;API&#39;s privadas onde você tem o controle do cliente&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+
+&lt;h3&gt;2 - Versão como parâmetro na URL&lt;/h3&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;center&gt;
+&lt;img src=&quot;/images/posts/versionamento-de-servicos-web-api_s2.png&quot;&gt; &lt;br&gt;
+&lt;sublegend&gt;Figura 2: Versão como parâmetro na URL&lt;/sublegend&gt;
+&lt;/center&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;
+Este modelo é bastante parecido a do primeiro com uma sutil diferença para o consumidor: a versão da API é informada como parâmetro da chamada.
+Se para o cliente esta é uma sutil modificação, na implementação nos bastidores se encontra uma alteração considerável de arquitetura.
+O controller também faz o papel de um dispatcher para a classe de negócios informada no parâmetro.
+&lt;/p&gt;
+
+
+&lt;b&gt;Exemplo: &lt;/b&gt;
+&lt;ul&gt;
+	&lt;li&gt;/servico1?v=1&lt;/li&gt;
+	&lt;li&gt;/servico1?v=2&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;b&gt;Prós&lt;/b&gt; 
+&lt;ul&gt;
+	&lt;li&gt;Apenas as classes de negócios são alteradas mantendo apenas um controller&lt;/li&gt;
+	&lt;li&gt;Um único ponto de entrada (controller)&lt;/li&gt;
+	&lt;li&gt;O parâmetro pode ser um opcional, caso o cliente não o informe, execute a última versão do serviço&lt;/li&gt;
+	&lt;li&gt;Economia no tempo de manutenção &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;b&gt;Contras&lt;/b&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;Erros do lado do cliente com chamadas e parâmetros incorretos (caso seja alterado os parâmetros no decorrer da evolução do serviço)&lt;/li&gt;
+	&lt;li&gt;Código de testes pode ter bastante duplicidade&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;b&gt;Adequado para&lt;/b&gt;
+&lt;ul&gt;
+	&lt;li&gt;API&#39;s públicas (sem controle do cliente) ou privadas (com domínio do cliente)&lt;/li&gt;
+&lt;/ul&gt;   
+
+
+
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;h3&gt;3 - Versão como parâmetro no Header&lt;/h3&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;center&gt;
+&lt;img src=&quot;/images/posts/versionamento-de-servicos-web-api_s3.png&quot;&gt; &lt;br&gt;
+&lt;sublegend&gt;Figura 3: Versão como parâmetro no Header&lt;/sublegend&gt;
+&lt;/center&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;Nesta abordagem o cliente continua a enviar a versão da API que deseja ser acessada. Só que desta vez esta versão não é visível na URL como nos casos anteriores. A versão é inserida no header do request ao servidor.
+&lt;/p&gt;
+
+&lt;p&gt;Atualmente não é muito utilizada, mas é sem dúvida uma forma de inserir uma certa segurança na chamada da sua API. Apenas capturando a URL não é possível saber a versão da API sendo acessada, e se for o caso, uma versão não informada pode resultar - desde que programada no lado do servidor - uma resposta inadequada propositalmente.
+&lt;/p&gt;
+
+&lt;p&gt;Do lado do servidor, esta abordagem pode ser misturada com a &quot;Versão como parâmetro na URL&quot; no que diz respeito a arquitetura das classes: controllers, dispatchers e business layer e também a eleger uma versão padrão quando não informada.
+&lt;/p&gt;
+
+
+&lt;b&gt;Prós&lt;/b&gt;
+&lt;ul&gt;
+	&lt;li&gt;Apenas as classes de negócios são alteradas mantendo apenas um controller&lt;/li&gt;
+	&lt;li&gt;Um único ponto de entrada (controller)&lt;/li&gt;
+	&lt;li&gt;O parâmetro pode ser um opcional, caso o cliente não o informe, execute a última versão do serviço&lt;/li&gt;
+	&lt;li&gt;Economia no tempo de manutenção &lt;/li&gt;
+	&lt;li&gt;Inspira certo nível de segurança&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;b&gt;Contras&lt;/b&gt;
+&lt;ul&gt;
+	&lt;li&gt;Erros do lado do cliente com chamadas e parâmetros incorretos (caso seja alterado os parâmetros no decorrer da evolução do serviço)&lt;/li&gt;
+	&lt;li&gt;Código de testes pode ter bastante duplicidade&lt;/li&gt;
+	&lt;li&gt;Cliente deve estar preparado para fazer alteração no header antes de disparar o request.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;b&gt;Adequado para&lt;/b&gt;
+&lt;ul&gt;
+	&lt;li&gt;API&#39;s públicas (sem controle do cliente) ou privadas (com domínio do cliente) que não seja adequado deixar a versão requisitada visível na URL por questões de segurança&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+
+&lt;h2&gt;Conclusão&lt;/h2&gt;
+
+&lt;p&gt;Além destas três formas podem ser encontradas algumas outras formar de versionamento de API&#39;s. Estas três formas são as mais populares especialmente para serviços abertos ou que o cliente não esteja restrito a tecnologia A ou B.
+Como fornecedor de API&#39;s já implementei as 3 e de forma geral a que eu achei mais maleável às situações de mudanças em regras de negócio e diferentes formas de clientes a aplicação de versionamento como parâmetro da URL foi a mais prática e estável.&lt;/p&gt;
+
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+
+</description>
+    </item>
+    
+    <item>
+      <title>Arduino com IR Infrared Motion Sensor</title>
+      <link>http://www.codeinfected.com/blog/2013/01/arduino-ir-infrared-motion-detection-sensor/</link>
+      <pubDate>Sun, 13 Jan 2013 00:00:00 -0200</pubDate>
+      <author>cpp@codeinfected.com (Marcio Mangar)</author>
+      <guid>http://www.codeinfected.com/blog/2013/01/arduino-ir-infrared-motion-detection-sensor</guid>
+      <description>&lt;p&gt;
+&lt;a href=&quot;http://instagram.com/p/UUGP38C4XP/&quot;&gt;
+	&lt;img width=&quot;200px&quot; src=&quot;http://distilleryimage11.instagram.com/2384d7585b5711e280ba22000a9f1893_7.jpg&quot; /&gt;
+&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;	
+Este é mais um experimento que faz parte do repositório: &lt;a href=&quot;https://github.com/mangar/arduino-experiences&quot;&gt;https://github.com/mangar/arduino-experiences&lt;/a&gt; &lt;br&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+Neste, vou conectar um Sensor de presença - aqueles que fazem a luz do hall do seu andar ascender quando você aparece por ali - integrado a um Arduino. &lt;/p&gt;
+
+&lt;p&gt;
+A mecânica do sensor é bem simples, sempre que detectado alguma interferência, alguém passando na frente do sensor, é enviado um sinal no pino &lt;b&gt;Out&lt;/b&gt;. &lt;/p&gt;
+
+&lt;p&gt;
+Uma vez que o pino &lt;b&gt;Out&lt;/b&gt; esteja plugado em algum pino do Arduino preparado para a leitura - &lt;i&gt;pinMode(XX, INPUT)&lt;/i&gt; - o Arduino será notificado deste mudança, e você poderá programaticamente fazer o que quiser. Neste exemplo eu ascendo um led mandando um sinal para o &lt;b&gt;pino 13&lt;/b&gt;.
+&lt;/p&gt;
+
+
+&lt;h2&gt;Hardware&lt;/h2&gt;
+&lt;ol&gt;
+	&lt;li&gt;Arduino UNO&lt;/li&gt;
+	&lt;li&gt;O sensor de movimento. Você pode encontra no &lt;a href=&quot;http://goo.gl/3qnb3&quot;&gt;DealExtreme&lt;/a&gt; por mais ou menos US$3.50&lt;/li&gt;
+	&lt;li&gt;1 LED&lt;/li&gt;
+	&lt;li&gt;Cabos&lt;/li&gt;
+&lt;/ol&gt;
+
+    
+&lt;h2&gt;Conexão&lt;/h2&gt;
+
+&lt;p&gt;
+A conexão é bem simples, no sensor existem 3 pinos: Ground, 5V e Out. Não utilizei um breadboard para a conexão, fiz a ligação direta no Arduino. &lt;br&gt;
+O Ground e o 5V são conectados em seus respectivos pinos no board do Arduino. Já o pino &lt;b&gt;Out&lt;/b&gt; eu conectei no &lt;b&gt;pino 7 do Arduino.&lt;/b&gt;
+&lt;/p&gt;
+
+
+
+&lt;h2&gt;Software&lt;/h2&gt;
+
+O código fonte do &lt;a href=&quot;https://github.com/mangar/arduino-experiences/&quot;&gt;projeto&lt;/a&gt; e &lt;a href=&quot;https://github.com/mangar/arduino-experiences/blob/master/motion_detection/motion_detection.ino&quot;&gt;deste experimento&lt;/a&gt; estão disponíveis no meu 
+&lt;a href=&quot;https://github.com/mangar&quot; title=&quot;Code on GitHub&quot; target=&quot;_github&quot;&gt;&lt;i class=&quot;icon-github&quot;&gt;&lt;/i&gt; Github&lt;/a&gt;.
+
+
+&lt;script src=&quot;https://gist.github.com/4504554.js&quot;&gt;&lt;/script&gt;
+
+
+
+
+
+
+
+
+</description>
+    </item>
+    
+
+  </channel>
+</rss>

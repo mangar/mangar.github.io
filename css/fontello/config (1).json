@@ -1,0 +1,234 @@
+{
+  "name": "codeinfected",
+  "glyphs": [
+    {
+      "search": [
+        "youtube"
+      ],
+      "code": 85,
+      "uid": "57a4f84c40a0c44d47387105f162a427",
+      "css": "youtube",
+      "orig_css": "youtube",
+      "orig_code": 85,
+      "src": "zocial",
+      "from": 85
+    },
+    {
+      "search": [
+        "bitbucket"
+      ],
+      "code": 233,
+      "uid": "5b1387fb48babf0748ea04107c9adac3",
+      "css": "bitbucket",
+      "orig_css": "bitbucket",
+      "orig_code": 233,
+      "src": "zocial",
+      "from": 233
+    },
+    {
+      "search": [
+        "info"
+      ],
+      "code": 8505,
+      "uid": "ccd52a22af21fbaa98a9c85fb50fca6b",
+      "file": "info",
+      "css": "info",
+      "orig_css": "info",
+      "orig_code": 8505,
+      "src": "iconic",
+      "from": 8505
+    },
+    {
+      "search": [
+        "mail",
+        "email"
+      ],
+      "code": 9993,
+      "from": 9993,
+      "uid": "cba6018f5de17c76f70b7d2c06037e5a",
+      "css": "mail",
+      "orig_css": "mail",
+      "orig_code": 9993,
+      "src": "websymbols"
+    },
+    {
+      "search": [
+        "eye",
+        "subscribe"
+      ],
+      "code": 59146,
+      "from": 59146,
+      "uid": "c5fd349cbd3d23e4ade333789c29c729",
+      "css": "eye",
+      "orig_css": "eye",
+      "orig_code": 59146,
+      "src": "fontawesome"
+    },
+    {
+      "search": [
+        "rss"
+      ],
+      "code": 59194,
+      "uid": "cbfc8f7ba004d60f5134b30a27e87829",
+      "file": "rss_alt",
+      "css": "rss",
+      "orig_css": "rss",
+      "orig_code": 59194,
+      "src": "iconic",
+      "from": 59194
+    },
+    {
+      "search": [
+        "github",
+        "social",
+        "logo"
+      ],
+      "code": 62208,
+      "uid": "d94334f23acba022bfd68e49d76b31bb",
+      "css": "github",
+      "orig_css": "github",
+      "orig_code": 62208,
+      "src": "entypo",
+      "from": 62208
+    },
+    {
+      "search": [
+        "flickr",
+        "social",
+        "logo"
+      ],
+      "code": 62211,
+      "uid": "14cfd18cc1dd5fb99ba04311b888bc23",
+      "css": "flickr",
+      "orig_css": "flickr",
+      "orig_code": 62211,
+      "src": "entypo",
+      "from": 62211
+    },
+    {
+      "search": [
+        "vimeo",
+        "social",
+        "logo"
+      ],
+      "code": 62214,
+      "uid": "538531af0e023b15882c505ee2297cbe",
+      "css": "vimeo",
+      "orig_css": "vimeo",
+      "orig_code": 62214,
+      "src": "entypo",
+      "from": 62214
+    },
+    {
+      "search": [
+        "twitter",
+        "social",
+        "logo"
+      ],
+      "code": 62217,
+      "uid": "d090355c31f497b61d676416c1fd39fb",
+      "css": "twitter",
+      "orig_css": "twitter",
+      "orig_code": 62217,
+      "src": "entypo",
+      "from": 62217
+    },
+    {
+      "search": [
+        "facebook",
+        "social",
+        "logo"
+      ],
+      "code": 62220,
+      "uid": "bc50457410acf467b8b5721240768742",
+      "css": "facebook",
+      "orig_css": "facebook",
+      "orig_code": 62220,
+      "src": "entypo",
+      "from": 62220
+    },
+    {
+      "search": [
+        "google",
+        "plus",
+        "social",
+        "logo"
+      ],
+      "code": 62223,
+      "uid": "b945f4ac2439565661e8e4878e35d379",
+      "css": "gplus",
+      "orig_css": "gplus",
+      "orig_code": 62223,
+      "src": "entypo",
+      "from": 62223
+    },
+    {
+      "search": [
+        "tumblr",
+        "social",
+        "logo"
+      ],
+      "code": 62229,
+      "uid": "d491462e64eb5b8c4f064108a2ff1780",
+      "css": "tumblr",
+      "orig_css": "tumblr",
+      "orig_code": 62229,
+      "src": "entypo",
+      "from": 62229
+    },
+    {
+      "search": [
+        "linkedin",
+        "social",
+        "logo"
+      ],
+      "code": 62232,
+      "uid": "7132e1233bc16cd1b6efe7e29d3613a5",
+      "css": "linkedin",
+      "orig_css": "linkedin",
+      "orig_code": 62232,
+      "src": "entypo",
+      "from": 62232
+    },
+    {
+      "search": [
+        "instagram",
+        "social",
+        "logo"
+      ],
+      "code": 62253,
+      "uid": "0fbfb1cd7a847c88ea4c141d0e1bbdb5",
+      "css": "instagram",
+      "orig_css": "instagram",
+      "orig_code": 62253,
+      "src": "entypo",
+      "from": 62253
+    },
+    {
+      "search": [
+        "skype",
+        "social",
+        "logo"
+      ],
+      "code": 62265,
+      "uid": "28ccaf022b8363aeaa5b86f66e1f5173",
+      "css": "skype",
+      "orig_css": "skype",
+      "orig_code": 62265,
+      "src": "entypo",
+      "from": 62265
+    },
+    {
+      "search": [
+        "globe"
+      ],
+      "code": 127758,
+      "uid": "6a12c2b74456ea21cc984e11dec227a1",
+      "css": "globe",
+      "orig_css": "globe",
+      "orig_code": 127758,
+      "src": "entypo",
+      "from": 127758
+    }
+  ]
+}

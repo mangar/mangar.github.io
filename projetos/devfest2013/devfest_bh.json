@@ -1,0 +1,184 @@
+{
+  "city":"bh",
+  "version" : "130601",
+  "days": [
+    {
+      "date": "16/06/2013",
+      "description": "Segunda, 16 de Junho",
+      "sessions": [
+        {
+          "room": "Sala 1",
+          "start_time": "09:00",
+          "end_time": "10:00",
+          "theme" : "android",
+          "is_break": 0,
+          "name": "Nome da Sessao 1",
+          "description": "Descricao da sessao 1",
+          "url": "http://www.uol.com.br/sessao1.html"
+        },
+        {
+          "room": "Sala 1",
+          "start_time": "10:00",
+          "end_time": "11:00",
+          "theme" : "chrome",
+          "is_break": 0,
+          "name": "Nome da Sessao 2",
+          "description": "Descricao da sessao 2",          
+          "url": "http://www.uol.com.br/sessao2.html"
+        },
+        {
+          "room": "Sala 1",
+          "start_time": "11:00",
+          "end_time": "12:00",
+          "theme" : "android",
+          "is_break": 0,
+          "name": "Nome da Sessao 3",
+          "description": "Descricao da sessao 3",   
+          "url": "http://www.uol.com.br/sessao3.html"
+        },
+        {
+          "room": "Sala 2",
+          "start_time": "09:00",
+          "end_time": "10:00",
+          "theme" : "cloud",
+          "is_break": 0,
+          "name": "Nome da Sessao 1.2",
+          "description": "Descricao da sessao 1.2",
+          "url": "http://www.uol.com.br/sessao1.2.html"
+        },
+        {
+          "room": "Sala 2",
+          "start_time": "10:00",
+          "end_time": "11:00",
+          "theme" : "android",
+          "is_break": 0,
+          "name": "Nome da Sessao 2.2",
+          "description": "Descricao da sessao 2.2",          
+          "url": "http://www.uol.com.br/sessao2.2.html"
+        },
+        {
+          "room": "Sala 2",
+          "start_time": "11:00",
+          "end_time": "12:00",
+          "theme" : "glass",
+          "is_break": 0,
+          "name": "Nome da Sessao 3.2",
+          "description": "Descricao da sessao 3.2",   
+          "url": "http://www.uol.com.br/sessao3.2.html"
+        },
+        {
+          "room": "",
+          "start_time": "12:00",
+          "end_time": "13:00",
+          "is_break": 1,
+          "name": "Almoço",
+          "description": "",   
+          "url": ""
+        },
+
+        {
+          "room": "Sala 1",
+          "start_time": "13:00",
+          "end_time": "14:00",
+          "theme" : "ad",
+          "is_break": 0,
+          "name": "Nome da Sessao 4",
+          "description": "Descricao da sessao 4",
+          "url": "http://www.uol.com.br/sessao4.html"
+        },
+        {
+          "room": "Sala 2",
+          "start_time": "13:00",
+          "end_time": "14:00",
+          "theme" : "youtube",
+          "is_break": 0,
+          "name": "Nome da Sessao 4.2",
+          "description": "Descricao da sessao 4.2",
+          "url": "http://www.uol.com.br/sessao4.2.html"
+        }
+      ]
+    },
+
+
+    {
+      "date": "17/06/2013",
+      "description": "Terça, 17 de Junho",
+      "sessions": [
+        {
+          "room": "Sala 1",
+          "start_time": "09:00",
+          "end_time": "10:00",
+          "theme" : "codelab",
+          "is_break": 0,
+          "name": "Nome da Sessao 11",
+          "description": "Descricao da sessao 11",
+          "url": "http://www.uol.com.br/sessao11.html"
+        },
+        {
+          "room": "Sala 1",
+          "start_time": "10:00",
+          "end_time": "11:00",
+          "theme" : "hackathon",
+          "is_break": 0,
+          "name": "Nome da Sessao 21",
+          "description": "Descricao da sessao 21",          
+          "url": "http://www.uol.com.br/sessao21.html"
+        },
+        {
+          "room": "Sala 1",
+          "start_time": "11:00",
+          "end_time": "12:00",
+          "theme" : "maps",
+          "is_break": 0,
+          "name": "Nome da Sessao 31",
+          "description": "Descricao da sessao 31",   
+          "url": "http://www.uol.com.br/sessao31.html"
+        },
+
+
+        {
+          "room": "Sala 2",
+          "start_time": "09:00",
+          "end_time": "10:00",
+          "theme" : "cloud",
+          "is_break": 0,
+          "name": "Nome da Sessao 1.22",
+          "description": "Descricao da sessao 1.22",
+          "url": "http://www.uol.com.br/sessao1.22.html"
+        },
+        {
+          "room": "Sala 2",
+          "start_time": "10:00",
+          "end_time": "11:00",
+          "theme" : "android",
+          "is_break": 0,
+          "name": "Nome da Sessao 2.22",
+          "description": "Descricao da sessao 2.22",
+          "url": "http://www.uol.com.br/sessao2.22.html"
+        },
+        {
+          "room": "Sala 2",
+          "start_time": "11:00",
+          "end_time": "12:00",
+          "theme" : "g+",
+          "is_break": 0,
+          "name": "Nome da Sessao 3.22",
+          "description": "Descricao da sessao 3.22",
+          "url": "http://www.uol.com.br/sessao3.22.html"
+        },
+        {
+          "room": "",
+          "start_time": "12:00",
+          "end_time": "13:00",
+          "is_break": 1,
+          "name": "Almoço",
+          "description": "",   
+          "url": ""
+        }        
+
+      ]
+    }
+
+
+  ]
+}
