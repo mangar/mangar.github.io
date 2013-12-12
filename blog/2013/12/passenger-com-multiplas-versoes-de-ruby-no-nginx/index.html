@@ -5,7 +5,7 @@
   <script type="text/javascript" src="//use.typekit.net/say4lty.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Arduino com IR Infrared Motion Sensor</title>
+  <title>NGINX + Passenger com multiplas versões do Ruby usando RVM</title>
   <meta name="description" content="">
   <link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/codeinfected">
   <meta name="viewport" content="width=device-width">
@@ -36,57 +36,66 @@
   <section class="row" role="main">
     <article class="post ten columns centered">
       <header>
-        <time pubdate>13 Jan 2013</time>
-        <h1>Arduino com IR Infrared Motion Sensor</h1>
+        <time pubdate>13 Dec 2013</time>
+        <h1>NGINX + Passenger com multiplas versões do Ruby usando RVM</h1>
       </header>
 
       <p>
-<a href="http://instagram.com/p/UUGP38C4XP/">
-	<img width="200px" src="http://distilleryimage11.instagram.com/2384d7585b5711e280ba22000a9f1893_7.jpg" />
-</a>
-</p>
-
-<p>	
-Este é mais um experimento que faz parte do repositório: <a href="https://github.com/mangar/arduino-experiences">https://github.com/mangar/arduino-experiences</a> <br>
-</p>
-
-<p>
-Neste, vou conectar um Sensor de presença - aqueles que fazem a luz do hall do seu andar ascender quando você aparece por ali - integrado a um Arduino. </p>
-
-<p>
-A mecânica do sensor é bem simples, sempre que detectado alguma interferência, alguém passando na frente do sensor, é enviado um sinal no pino <b>Out</b>. </p>
-
-<p>
-Uma vez que o pino <b>Out</b> esteja plugado em algum pino do Arduino preparado para a leitura - <i>pinMode(XX, INPUT)</i> - o Arduino será notificado deste mudança, e você poderá programaticamente fazer o que quiser. Neste exemplo eu ascendo um led mandando um sinal para o <b>pino 13</b>.
-</p>
-
-
-<h2>Hardware</h2>
-<ol>
-	<li>Arduino UNO</li>
-	<li>O sensor de movimento. Você pode encontra no <a href="http://goo.gl/3qnb3">DealExtreme</a> por mais ou menos US$3.50</li>
-	<li>1 LED</li>
-	<li>Cabos</li>
-</ol>
-
-    
-<h2>Conexão</h2>
-
-<p>
-A conexão é bem simples, no sensor existem 3 pinos: Ground, 5V e Out. Não utilizei um breadboard para a conexão, fiz a ligação direta no Arduino. <br>
-O Ground e o 5V são conectados em seus respectivos pinos no board do Arduino. Já o pino <b>Out</b> eu conectei no <b>pino 7 do Arduino.</b>
+Algumas vezes você desenvolve um software utilizando uma versão do Ruby, que hoje, já não está tao atualizada assim. <br>
+E agora, você está desenvolvendo outro software e gostaria de utilizar o Ruby 10.x e o Rails 20. <br>
+Antigamente a solução era fazer um proxy reverso, mas a partir da versão 4 do Passenger isso não é mais necessário. <br>
 </p>
 
 
 
-<h2>Software</h2>
+<h2>Pré Requisitos</h2>
+<p>
+Se você tem em seu ambiente: NGINX (ou Apache) e RVM, tudo bem. Você pode fazer o upgrade do Ruby e das Gems e instalar o seu novo software no mesmo ambiente do seu antigo. <br>
+</p>
 
-O código fonte do <a href="https://github.com/mangar/arduino-experiences/">projeto</a> e <a href="https://github.com/mangar/arduino-experiences/blob/master/motion_detection/motion_detection.ino">deste experimento</a> estão disponíveis no meu 
-<a href="https://github.com/mangar" title="Code on GitHub" target="_github"><i class="icon-github"></i> Github</a>.
+
+<h3>RVM</h3>
+<p>
+Tenha a versão necessária do Ruby instalada. <br>
+<code>
+	rvm install 2.0.0
+</code>
+<br>
 
 
-<script src="https://gist.github.com/4504554.js"></script>
+<h3>Passenger</h3>
+<p>
+Certifique que você tem a versão 4 (ou maior) do passenger, esta será peça fundamental para a configuração. <br>
+Se precisar atualizar o seu passenger você deverá instalar a nova gem do passenger e recompilar o NGINX. <br>
+<a href="http://stackoverflow.com/questions/16507489/upgrade-phusion-passenger-without-reinstalling-nginx" target="_nginx_passenger_1">Aqui</a> você encontra como recompilar o NGINX com a nova versão do Passenger. <br>
 
+Execute o comando: <i>passenger-config --ruby-command</i> e obtenha o caminho completo do Ruby. <br>
+Você pode trocar a versão do Ruby via RVM (<i>rvm use 2.0.0</i>) antes de conseguir o path do Ruby. <br>
+</p>
+
+
+<h3>NGINX</h3>
+<p>
+Com o resultado extraído do comando passenger-config, abra o arquivo de configuração do seu site no NGINX (geralmente /opt/conf/nginx/nginx.conf) <br>
+
+Procure a diretiva <i>server</i> e adicione a linha <i>passenger_ruby </i> <br>
+
+
+A configuração do seu virtual host deverá ser algo seguindo este modelo: <br>
+
+<script src="https://gist.github.com/mangar/7936362.js"></script>
+
+</p>
+
+
+<h2>Conclusão</h2>
+<p>
+Até a versão 3 do Passenger a definição da versão do Ruby era possivle apenas globalmente. <br>
+A partir da versão 4, é possível especificar através da entrada: <i>passenger_ruby</i> não apenas no http (globalmente), mas também dentro do server (configuração do seu site). <br>
+
+</p>
+
+</p>
 
 
 

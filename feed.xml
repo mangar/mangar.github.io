@@ -5,9 +5,81 @@
     <link>http://codeinfected.com/</link>
     <description></description>
     <language>pt-BR</language>
-    <pubDate>Sun, 08 Dec 2013 23:08:57 -0200</pubDate>
-    <lastBuildDate>Sun, 08 Dec 2013 23:08:57 -0200</lastBuildDate>
+    <pubDate>Thu, 12 Dec 2013 20:05:16 -0200</pubDate>
+    <lastBuildDate>Thu, 12 Dec 2013 20:05:16 -0200</lastBuildDate>
 
+    
+    <item>
+      <title>NGINX + Passenger com multiplas versões do Ruby usando RVM</title>
+      <link>http://www.codeinfected.com/blog/2013/12/passenger-com-multiplas-versoes-de-ruby-no-nginx/</link>
+      <pubDate>Fri, 13 Dec 2013 00:00:00 -0200</pubDate>
+      <author>cpp@codeinfected.com (Marcio Mangar)</author>
+      <guid>http://www.codeinfected.com/blog/2013/12/passenger-com-multiplas-versoes-de-ruby-no-nginx</guid>
+      <description>&lt;p&gt;
+Algumas vezes você desenvolve um software utilizando uma versão do Ruby, que hoje, já não está tao atualizada assim. &lt;br&gt;
+E agora, você está desenvolvendo outro software e gostaria de utilizar o Ruby 10.x e o Rails 20. &lt;br&gt;
+Antigamente a solução era fazer um proxy reverso, mas a partir da versão 4 do Passenger isso não é mais necessário. &lt;br&gt;
+&lt;/p&gt;
+
+
+
+&lt;h2&gt;Pré Requisitos&lt;/h2&gt;
+&lt;p&gt;
+Se você tem em seu ambiente: NGINX (ou Apache) e RVM, tudo bem. Você pode fazer o upgrade do Ruby e das Gems e instalar o seu novo software no mesmo ambiente do seu antigo. &lt;br&gt;
+&lt;/p&gt;
+
+
+&lt;h3&gt;RVM&lt;/h3&gt;
+&lt;p&gt;
+Tenha a versão necessária do Ruby instalada. &lt;br&gt;
+&lt;code&gt;
+	rvm install 2.0.0
+&lt;/code&gt;
+&lt;br&gt;
+
+
+&lt;h3&gt;Passenger&lt;/h3&gt;
+&lt;p&gt;
+Certifique que você tem a versão 4 (ou maior) do passenger, esta será peça fundamental para a configuração. &lt;br&gt;
+Se precisar atualizar o seu passenger você deverá instalar a nova gem do passenger e recompilar o NGINX. &lt;br&gt;
+&lt;a href=&quot;http://stackoverflow.com/questions/16507489/upgrade-phusion-passenger-without-reinstalling-nginx&quot; target=&quot;_nginx_passenger_1&quot;&gt;Aqui&lt;/a&gt; você encontra como recompilar o NGINX com a nova versão do Passenger. &lt;br&gt;
+
+Execute o comando: &lt;i&gt;passenger-config --ruby-command&lt;/i&gt; e obtenha o caminho completo do Ruby. &lt;br&gt;
+Você pode trocar a versão do Ruby via RVM (&lt;i&gt;rvm use 2.0.0&lt;/i&gt;) antes de conseguir o path do Ruby. &lt;br&gt;
+&lt;/p&gt;
+
+
+&lt;h3&gt;NGINX&lt;/h3&gt;
+&lt;p&gt;
+Com o resultado extraído do comando passenger-config, abra o arquivo de configuração do seu site no NGINX (geralmente /opt/conf/nginx/nginx.conf) &lt;br&gt;
+
+Procure a diretiva &lt;i&gt;server&lt;/i&gt; e adicione a linha &lt;i&gt;passenger_ruby &lt;/i&gt; &lt;br&gt;
+
+
+A configuração do seu virtual host deverá ser algo seguindo este modelo: &lt;br&gt;
+
+&lt;script src=&quot;https://gist.github.com/mangar/7936362.js&quot;&gt;&lt;/script&gt;
+
+&lt;/p&gt;
+
+
+&lt;h2&gt;Conclusão&lt;/h2&gt;
+&lt;p&gt;
+Até a versão 3 do Passenger a definição da versão do Ruby era possivle apenas globalmente. &lt;br&gt;
+A partir da versão 4, é possível especificar através da entrada: &lt;i&gt;passenger_ruby&lt;/i&gt; não apenas no http (globalmente), mas também dentro do server (configuração do seu site). &lt;br&gt;
+
+&lt;/p&gt;
+
+&lt;/p&gt;
+
+
+
+
+
+
+
+</description>
+    </item>
     
     <item>
       <title>BlueDruino - Android e Arduino via Bluetooth</title>
